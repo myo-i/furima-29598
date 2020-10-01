@@ -28,7 +28,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-
+- has_many :purchases
 
 | Column              | Type   | Options     |
 | ------------------- | ------ | ----------- |
@@ -48,6 +48,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+- has_many :purchases
 
 
 | Column              | Type   | Options                         |
@@ -55,11 +56,11 @@ Things you may want to cover:
 | user_id             | integer | null: false, foreign_key: true |
 | name                | string | null: false                     |
 | description         | text   | null: false                     |
-| category            | string | null: false                     |
-| product_state       | string | null: false                     |
-| payment_burden      | string | null: false                     |
-| area                | string | null: false                     |
-| delivery_days       | string | null: false                     |
+| category_id         | integer | null: false                    |
+| product_state_id    | integer | null: false                    |
+| payment_burden_id   | integer | null: false                    |
+| area_id             | integer | null: false                    |
+| delivery_days_id    | integer | null: false                    |
 | price               | integer | null: false                    |
 
 
@@ -68,6 +69,8 @@ Things you may want to cover:
 
 ### Association
 - has_one :delivery
+- belongs_to :user
+- belongs_to :item
 
 | Column              | Type   | Options                         |
 | ------------------- | ------ | ------------------------------- |
@@ -81,11 +84,12 @@ Things you may want to cover:
 ### Association
 - belongs_to :purchase
 
-| Column              | Type   | Options     |
-| ------------------- | ------ | ----------- |
-| postal_code         | string | null: false |
-| prefectures         | integer| null: false |
-| city                | string | null: false |
-| block               | string | null: false |
-| building_name       | string |             |
-| phone_number        | string | null: false |
+| Column              | Type   | Options                         |
+| ------------------- | ------ | ------------------------------- |
+| purchase_id        | integer | null: false, foreign_key: true |
+| postal_code         | string | null: false                     |
+| prefecture_id      | integer | null: false                    |
+| city                | string | null: false                     |
+| block               | string | null: false                     |
+| building_name       | string |                                 |
+| phone_number        | string | null: false                     |
