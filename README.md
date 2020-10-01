@@ -27,9 +27,8 @@ Things you may want to cover:
 ## usersテーブル
 
 ### Association
-
 - has_many :items
-- has_one :purchase
+
 
 | Column              | Type   | Options     |
 | ------------------- | ------ | ----------- |
@@ -42,41 +41,51 @@ Things you may want to cover:
 | email               | string | null: false |
 | password            | string | null: false |
 
+
+
+
 ## itemsテーブル
 
 ### Association
-
 - belongs_to :user
-- has_many :purchases
 
-| Column              | Type   | Options     |
-| ------------------- | ------ | ----------- |
-| user_id             | integer | null: false |
-| name                | string | null: false |
-| description         | text   | null: false |
-| category            | string | null: false |
-| product_state       | string | null: false |
-| payment_burden      | string | null: false |
-| area                | string | null: false |
-| delivery_days       | string | null: false |
-| price               | integer | null: false |
+
+| Column              | Type   | Options                         |
+| ------------------- | ------ | ------------------------------- |
+| user_id             | integer | null: false, foreign_key: true |
+| name                | string | null: false                     |
+| description         | text   | null: false                     |
+| category            | string | null: false                     |
+| product_state       | string | null: false                     |
+| payment_burden      | string | null: false                     |
+| area                | string | null: false                     |
+| delivery_days       | string | null: false                     |
+| price               | integer | null: false                    |
+
+
 
 ## purchasesテーブル
 
 ### Association
+- has_one :delivery
 
-- belongs_to :item
-- belongs_to :user
+| Column              | Type   | Options                         |
+| ------------------- | ------ | ------------------------------- |
+| user_id             | integer | null: false, foreign_key: true |
+| item_id             | integer | null: false, foreign_key: true |
+
+
+
+## deliveriesテーブル
+
+### Association
+- belongs_to :purchase
 
 | Column              | Type   | Options     |
 | ------------------- | ------ | ----------- |
-| item_id             | integer | null: false |
-| credit              | integer | null: false |
-| expiration_date     | integer | null: false |
-| security_code       | integer | null: false |
-| postal_code         | integer | null: false |
-| prefectures         | string | null: false |
+| postal_code         | string | null: false |
+| prefectures         | integer| null: false |
 | city                | string | null: false |
 | block               | string | null: false |
-| building_name       | string | null: false |
-| phone_number        | integer | null: false |
+| building_name       | string |             |
+| phone_number        | string | null: false |
