@@ -12,12 +12,7 @@ function price(){
       let gains = value - fee
       add_tax.textContent = fee;
       profit.textContent = gains;
-    } else {
-      let fee = '-';
-      let gains = '-';
-      add_tax.textContent = fee;
-      profit.textContent = gains;
-    }
+    } 
   });
  
  }
