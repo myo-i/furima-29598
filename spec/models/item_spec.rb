@@ -41,10 +41,22 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
+      it 'category_idが1だと保存できない' do
+        @item.category_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+
       it 'product_state_idが空だと保存できない' do
         @item.product_state_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Product state can't be blank")
+      end
+
+      it 'product_state_idが1だと保存できない' do
+        @item.product_state_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Product state must be other than 1")
       end
 
       it 'payment_burden_idが空だと保存できない' do
@@ -53,10 +65,34 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Payment burden can't be blank")
       end
 
+      it 'payment_burden_idが1だと保存できない' do
+        @item.payment_burden_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Payment burden must be other than 1")
+      end
+
       it 'area_idが空だと保存できない' do
         @item.area_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Area can't be blank")
+      end
+
+      it 'area_idが1だと保存できない' do
+        @item.area_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Area must be other than 1")
+      end
+
+      it 'delivery_days_idが空だと保存できない' do
+        @item.delivery_days_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery days can't be blank")
+      end
+
+      it 'delivery_days_idが1だと保存できない' do
+        @item.delivery_days_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery days must be other than 1")
       end
 
       it 'priceが空だと保存できない' do
@@ -80,7 +116,6 @@ RSpec.describe Item, type: :model do
       it 'priceが半角数字でないと保存できない' do
         @item.price = '１０００'
         @item.valid?
-        
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
 
