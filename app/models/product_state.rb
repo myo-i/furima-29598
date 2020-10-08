@@ -1,4 +1,4 @@
-class State < ActiveHash::Base
+class ProductState < ActiveHash::Base
 
   self.data = [
     { id: 1, state: '--' },

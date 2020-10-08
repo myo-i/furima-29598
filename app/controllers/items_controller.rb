@@ -20,11 +20,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @user = @item.user
-    @category = Genre.find(@item.category_id)
-    @state = State.find(@item.product_state_id)
-    @burden = Burden.find(@item.payment_burden_id)
-    @area = Area.find(@item.area_id)
-    @days = Day.find(@item.delivery_days_id)
+    
   end
 
   private
