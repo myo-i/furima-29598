@@ -1,4 +1,4 @@
-class Burden < ActiveHash::Base
+class PaymentBurden < ActiveHash::Base
 
   self.data = [
     { id: 1, burden: '--' },

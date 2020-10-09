@@ -5,12 +5,13 @@ class Item < ApplicationRecord
 
   HANKAKU_NUMBER = /\A[0-9]+\z/
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :genre
-  belongs_to_active_hash :state
-  belongs_to_active_hash :burden
+  extend ActiveHash::Associations::ActiveRecordExtensions 
+  belongs_to_active_hash :category
+  belongs_to_active_hash :product_state
+  belongs_to_active_hash :payment_burden
   belongs_to_active_hash :area
-  belongs_to_active_hash :day
+  belongs_to_active_hash :delivery_days
+  
 
   validates :image, :name, :description, :category_id, :product_state_id, :payment_burden_id, :area_id, :delivery_days_id, :price, presence: true
 
