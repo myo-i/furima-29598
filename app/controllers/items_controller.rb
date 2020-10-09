@@ -1,5 +1,10 @@
 class ItemsController < ApplicationController
+<<<<<<< Updated upstream
   before_action :authenticate_user!, only: [:new]
+=======
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_item, only: [:show, :edit]
+>>>>>>> Stashed changes
   def index
   end
 
@@ -16,6 +21,21 @@ class ItemsController < ApplicationController
     end
   end
 
+<<<<<<< Updated upstream
+=======
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to root_path
+  end
+
+>>>>>>> Stashed changes
   private
 
   def item_params
