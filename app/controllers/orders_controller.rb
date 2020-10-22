@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  before_action :set_itemid, only: [:index, :create, :purchased, :listing_person]
+  before_action :purchased, only: [:index]
+  before_action :listing_person, only: [:index]
   require 'payjp'
   def index
-    @order = Order.new
     @order_delivery = OrderDelivery.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order_delivery = OrderDelivery.new(order_params)
     
     if @order_delivery.valid?
@@ -33,4 +34,21 @@ class OrdersController < ApplicationController
       currency:'jpy'                 
     )
   end
+
+  def set_itemid
+    @item = Item.find(params[:item_id])
+  end
+
+  def purchased
+    if @item.order.present?
+      redirect_to root_path
+    end
+  end
+
+  def listing_person
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    end
+  end
+
 end
