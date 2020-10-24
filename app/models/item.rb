@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_many :purchases
+  has_one :order
   has_one_attached :image
 
   HANKAKU_NUMBER = /\A[0-9]+\z/
