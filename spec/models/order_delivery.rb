@@ -49,13 +49,13 @@ RSpec.describe OrderDelivery, type: :model do
       it 'area_idが空だと保存できない' do
         @order_delivery.area_id = ''
         @order_delivery.valid?
-        expect(@order_delivery.errors.full_messages).to include("Area can't be blank", "Area is not a number")
+        expect(@order_delivery.errors.full_messages).to include("Area can't be blank", 'Area is not a number')
       end
 
       it 'area_idが1だと保存できない' do
         @order_delivery.area_id = '1'
         @order_delivery.valid?
-        expect(@order_delivery.errors.full_messages).to include("Area must be other than 1")
+        expect(@order_delivery.errors.full_messages).to include('Area must be other than 1')
       end
 
       it 'cityが空だと保存できない' do
@@ -81,7 +81,6 @@ RSpec.describe OrderDelivery, type: :model do
         @order_delivery.valid?
         expect(@order_delivery.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
-
     end
   end
 end

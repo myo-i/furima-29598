@@ -1,5 +1,4 @@
 class ProductState < ActiveHash::Base
-
   self.data = [
     { id: 1, state: '--' },
     { id: 2, state: '新品、未使用' },
@@ -9,5 +8,4 @@ class ProductState < ActiveHash::Base
     { id: 6, state: '傷や汚れあり' },
     { id: 7, state: '全体的に状態が悪い' }
   ]
-  
 end

@@ -1,5 +1,4 @@
 class Area < ActiveHash::Base
-
   self.data = [
     { id: 1, area: '--' },
     { id: 2, area: '北海道' },
@@ -50,5 +49,4 @@ class Area < ActiveHash::Base
     { id: 47, area: '鹿児島県' },
     { id: 48, area: '沖縄県' }
   ]
-  
 end

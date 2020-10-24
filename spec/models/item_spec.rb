@@ -44,7 +44,7 @@ RSpec.describe Item, type: :model do
       it 'category_idが1だと保存できない' do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
 
       it 'product_state_idが空だと保存できない' do
@@ -56,7 +56,7 @@ RSpec.describe Item, type: :model do
       it 'product_state_idが1だと保存できない' do
         @item.product_state_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Product state must be other than 1")
+        expect(@item.errors.full_messages).to include('Product state must be other than 1')
       end
 
       it 'payment_burden_idが空だと保存できない' do
@@ -68,7 +68,7 @@ RSpec.describe Item, type: :model do
       it 'payment_burden_idが1だと保存できない' do
         @item.payment_burden_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Payment burden must be other than 1")
+        expect(@item.errors.full_messages).to include('Payment burden must be other than 1')
       end
 
       it 'area_idが空だと保存できない' do
@@ -80,7 +80,7 @@ RSpec.describe Item, type: :model do
       it 'area_idが1だと保存できない' do
         @item.area_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Area must be other than 1")
+        expect(@item.errors.full_messages).to include('Area must be other than 1')
       end
 
       it 'delivery_days_idが空だと保存できない' do
@@ -92,7 +92,7 @@ RSpec.describe Item, type: :model do
       it 'delivery_days_idが1だと保存できない' do
         @item.delivery_days_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery days must be other than 1")
+        expect(@item.errors.full_messages).to include('Delivery days must be other than 1')
       end
 
       it 'priceが空だと保存できない' do
@@ -104,22 +104,20 @@ RSpec.describe Item, type: :model do
       it 'priceが300未満では保存できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than 300')
       end
 
       it 'priceが9999999より大きいと保存できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 9999999")
+        expect(@item.errors.full_messages).to include('Price must be less than 9999999')
       end
 
       it 'priceが半角数字でないと保存できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
-
-      
     end
   end
 end
