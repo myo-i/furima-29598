@@ -66,13 +66,6 @@ ActiveRecord::Schema.define(version: 2020_10_14_140710) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "item_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "first_name", null: false
